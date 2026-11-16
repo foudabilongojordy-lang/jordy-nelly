@@ -390,7 +390,7 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 .hero-link:focus-visible { outline: 3px solid var(--btn); outline-offset: -3px; border-radius: 28px; }
 .hero-caption {
   max-width: 1200px; margin: 16px auto 0; padding: 0 8px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px; text-align: left;
+  text-align: center;
 }
 .hc-text { min-width: 0; }
 .hc-title { font-size: clamp(17px, 2.2vw, 24px); font-weight: 600; letter-spacing: -.02em; line-height: 1.25; }
