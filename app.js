@@ -87,12 +87,18 @@
     <span class="hero-badge"><i></i>Nouvelle vidéo · ${esc(timeAgo(v.publishedAt))}</span>
     <button class="hero-link" id="heroPlay" aria-label="Lire la dernière vidéo : ${esc(v.title)}"></button>`;
   // Le titre est sous la miniature (pas dessus) pour laisser l'image respirer
-  $("heroCaption").innerHTML = `<p class="hc-title">${esc(v.title)}</p>`;
-  // Un appui sur la miniature lance la vidéo directement dans l'encart
-  $("heroPlay").addEventListener("click", () => {
+  $("heroCaption").setAttribute("aria-label", "Lire la dernière vidéo : " + v.title);
+  $("heroCaption").innerHTML = `
+    <span class="hf-icon">${ICONS.youtube}</span>
+    <span class="hf-text"><span class="hf-kicker">Notre dernière vidéo</span><span class="hf-title">${esc(v.title)}</span></span>
+    ${ICONS.chev}`;
+  // Un appui sur la miniature (ou la bande titre) lance la vidéo directement dans la carte
+  const playHero = () => {
     if (!v.id) { open(yt?.url, "_blank"); return; }
     $("heroMedia").innerHTML = embed(v.id, v.title);
-  });
+  };
+  $("heroPlay").addEventListener("click", playHero);
+  $("heroCaption").addEventListener("click", playHero);
 
   // ================= Communauté =================
   const total = P.socials.reduce((s, x) => s + (x.followers || 0), 0);
@@ -374,7 +380,7 @@
   }
 
   // Image du haut qui s'agrandit au scroll + nav
-  const media = $("heroMedia"), nav = $("nav");
+  const media = $("heroCard"), nav = $("nav");
   const onScroll = () => {
     nav.classList.toggle("scrolled", scrollY > 10);
     if (reduce) return;

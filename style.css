@@ -385,16 +385,34 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
   }
 }
 
-/* Miniature du haut : seule la pastille "Nouvelle vidéo" reste sur l'image */
-.hero-media::after { display: none; }
-.hero-link:focus-visible { outline: 3px solid var(--btn); outline-offset: -3px; border-radius: 28px; }
-.hero-caption {
-  max-width: 1200px; margin: 16px auto 0; padding: 0 8px;
-  text-align: center;
+/* ================= Carte "dernière vidéo" : miniature + bande titre ================= */
+.hero { padding-bottom: 64px; }
+@media (min-width: 834px) { .hero { padding-bottom: 96px; } }
+.hero-card {
+  max-width: 1200px; margin: 0 auto; border-radius: 28px; overflow: hidden;
+  background: var(--card); box-shadow: 0 12px 40px rgba(0,0,0,.10);
+  outline: 1px solid color-mix(in srgb, var(--line) 45%, transparent); outline-offset: -1px;
+  transform-origin: 50% 0; will-change: transform;
 }
-.hc-text { min-width: 0; }
-.hc-title { font-size: clamp(17px, 2.2vw, 24px); font-weight: 600; letter-spacing: -.02em; line-height: 1.25; }
-.hc-meta { font-size: 14px; color: var(--text-2); margin-top: 2px; }
-.hc-play { flex-shrink: 0; gap: 6px; }
-.hc-play svg { width: 12px; height: 12px; fill: currentColor; stroke: none; }
-@media (min-width: 834px) { .hero-caption { padding: 0 4px; } }
+.hero-card .hero-media { max-width: none; border-radius: 0; box-shadow: none; transform: none !important; }
+.hero-media::after { display: none; }
+.hero-link:focus-visible { outline: 3px solid var(--btn); outline-offset: -3px; }
+.hero-foot {
+  width: 100%; display: flex; align-items: center; gap: 14px; padding: 16px 20px; text-align: left;
+  background: var(--card); transition: background .2s;
+}
+.hero-foot:hover { background: color-mix(in srgb, var(--bg-alt) 70%, var(--card)); }
+.hf-icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: #ff0000; color: #fff; flex-shrink: 0; }
+.hf-icon svg { width: 22px; height: 22px; }
+.hf-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.hf-kicker { font-size: 13px; color: var(--text-2); }
+.hf-title {
+  font-size: clamp(16px, 1.8vw, 19px); font-weight: 600; letter-spacing: -.015em; line-height: 1.25; color: var(--text);
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
+.hero-foot .chev { width: 14px; height: 14px; color: var(--text-3); }
+@media (max-width: 639px) {
+  .hero-card { border-radius: 22px; }
+  .hero-foot { padding: 14px 16px; gap: 12px; }
+  .hf-icon { width: 36px; height: 36px; }
+}

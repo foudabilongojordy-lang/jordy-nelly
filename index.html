@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Police de secours (Android/PC) chargée sans bloquer l'affichage : les iPhone utilisent la police Apple -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="style.css?v=22">
+  <link rel="stylesheet" href="style.css?v=23">
   <meta name="theme-color" content="#ffffff">
   <!-- Applique le mode du téléphone avant l'affichage (évite un flash blanc en mode sombre) -->
   <script>
@@ -59,8 +59,11 @@
       <div class="hero-actions fade" id="heroCta"></div>
     </div>
     <div class="hero-media-wrap">
-      <div class="hero-media" id="heroMedia"></div>
-      <div class="hero-caption" id="heroCaption"></div>
+      <!-- Une seule carte : la miniature + une bande titre en dessous (façon Apple TV) -->
+      <div class="hero-card" id="heroCard">
+        <div class="hero-media" id="heroMedia"></div>
+        <button class="hero-foot" id="heroCaption"></button>
+      </div>
     </div>
   </header>
 
@@ -135,7 +138,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="data.js?v=22"></script>
-  <script src="app.js?v=22"></script>
+  <script src="data.js?v=23"></script>
+  <script src="app.js?v=23"></script>
 </body>
 </html>
