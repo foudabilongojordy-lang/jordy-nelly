@@ -85,15 +85,22 @@
   $("heroMedia").innerHTML = `
     <img class="hero-thumb" src="${esc(v.id ? ytThumb(v.id) : v.thumbnail)}" alt="">
     <span class="hero-badge"><i></i>Nouvelle vidéo · ${esc(timeAgo(v.publishedAt))}</span>
-    <button class="hero-link" id="heroPlay" aria-label="Lire la dernière vidéo : ${esc(v.title)}">
-      <span class="v-play">${ICONS.play}</span>
-      <span class="watch-chip">${ICONS.play}<span id="heroLabel">${esc(v.title)}</span></span>
-    </button>`;
+    <button class="hero-link" id="heroPlay" aria-label="Lire la dernière vidéo : ${esc(v.title)}"></button>`;
+  // Le titre est sous la miniature (pas dessus) pour laisser l'image respirer
+  $("heroCaption").innerHTML = `
+    <div class="hc-text">
+      <p class="hc-title">${esc(v.title)}</p>
+      <p class="hc-meta">Sur notre chaîne YouTube</p>
+    </div>
+    <button class="btn small hc-play" id="heroPlay2">${ICONS.play}Regarder</button>`;
   // Lecture directement dans l'encart, sans quitter la page
-  $("heroPlay").addEventListener("click", () => {
+  const playHero = () => {
     if (!v.id) { open(yt?.url, "_blank"); return; }
     $("heroMedia").innerHTML = embed(v.id, v.title);
-  });
+    $("heroPlay2").remove();
+  };
+  $("heroPlay").addEventListener("click", playHero);
+  $("heroPlay2").addEventListener("click", playHero);
 
   // ================= Communauté =================
   const total = P.socials.reduce((s, x) => s + (x.followers || 0), 0);
