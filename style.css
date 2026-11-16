@@ -416,3 +416,17 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
   .hero-foot { padding: 14px 16px; gap: 12px; }
   .hf-icon { width: 36px; height: 36px; }
 }
+
+/* ================= Téléphone : haut de page plus compact =================
+   pour qu'on voie le début de la section suivante et qu'on ait envie de faire défiler */
+@media (max-width: 639px) {
+  .hero { padding-top: 36px; padding-bottom: 36px; }
+  .eyebrow { font-size: 18px; }
+  .hero-title { margin: 2px 0 10px; }
+  .hero-sub { font-size: 18px; }
+  .hero-actions { margin-top: 18px; gap: 8px 16px; flex-wrap: nowrap; }
+  .hero-actions .btn { padding: 0 18px; font-size: 16px; white-space: nowrap; }
+  .hero-actions .more { font-size: 16px; white-space: nowrap; }
+  .hero-media-wrap { padding-top: 26px; }
+  .ribbon { padding: 8px 16px; font-size: 13px; }
+}
