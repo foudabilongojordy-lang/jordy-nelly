@@ -386,7 +386,8 @@
     if (reduce) return;
     const r = media.getBoundingClientRect();
     const p = Math.min(1, Math.max(0, 1 - (r.top - 60) / (innerHeight * 0.7)));
-    media.style.transform = `scale(${0.86 + 0.14 * p})`;
+    const s0 = innerWidth < 640 ? 0.97 : 0.86; // sur téléphone, effet plus léger (moins de vide sous la carte)
+    media.style.transform = `scale(${s0 + (1 - s0) * p})`;
   };
   addEventListener("scroll", onScroll, { passive: true });
   addEventListener("resize", onScroll);

@@ -439,3 +439,15 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
   .hero-media-wrap { padding-top: 34px; }
   #communaute { padding-top: 28px; }
 }
+
+/* Téléphone : on voit le début de "Communauté" dès l'arrivée */
+@media (max-width: 639px) {
+  .hero { padding-bottom: 8px; }
+  #communaute { padding-top: 16px; }
+}
+@media (max-width: 639px) {
+  .hero { padding-top: 40px; padding-bottom: 4px; }
+  .hero-actions { margin-top: 20px; }
+  .hero-media-wrap { padding-top: 24px; }
+  #communaute { padding-top: 12px; }
+}
